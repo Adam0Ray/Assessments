@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+const pizza = {
+    name : 'Pepperoni Pizza',
+    price : 12,
+    category : 'Entree',
+    popularity : 10,
+    rating : 9,
+    tags : ['meat','cheese','tasty']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -44,6 +51,9 @@
 
 //CODE HERE
 
+// console.log(pizza.popularity)
+//logs 10
+
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +63,8 @@
 */
 
 //CODE HERE
-
+// console.log(pizza.tags[1])
+//logs cheese
 
 /*
     Third, destructure the price off of the
@@ -63,7 +74,9 @@
 */
 
 //CODE HERE
-
+let {price} = pizza
+// console.log(`${price}`)
+//logs 12
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +86,9 @@
 */
 
 //CODE HERE
-
+let {category} = pizza
+// console.log(`${category}`)
+//logs Entree
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -89,6 +104,49 @@
 
 //CODE HERE
 
+const foodArr = [
+    {
+        name : 'Chocolate Chip Cookie',
+        price : 5,
+        category : 'Desssert',
+        popularity : 4,
+        rating : 4,
+        tags : ['chocolate','yummy']   
+    },
+    {
+        name : 'Fries',
+        price : 7,
+        category : 'Side',
+        popularity : 10,
+        rating : 10,
+        tags : ['crispy','seasoned','potatoe']
+    },
+    {
+        name : 'Buffalo Wings',
+        price : 10,
+        category : 'Appetizer',
+        popularity : 7,
+        rating : 6,
+        tags : ['chicken','tangy','finger licking good']
+    },
+    {
+        name : 'Burger',
+        price : 11,
+        category : 'Entree',
+        popularity : 9,
+        rating : 8,
+        tags : ['beef','juicy','grilled']
+    },
+    {
+        name : 'Sandwich',
+        price : 9,
+        category : 'Entree',
+        popularity : 3,
+        rating : 2,
+        tags : ['Turkey','mayonaise','mustard']
+    }
+
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -107,6 +165,22 @@
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
+const filteredFood = foodArr.filter(element => {
+    if(element.tags.includes('Turkey'))
+    return element
+} )
+
+// console.log(filteredFood)
+//logs [
+//   {
+//     name: 'Sandwich',  
+//     price: 9,
+//     category: 'Entree',
+//     popularity: 3,     
+//     rating: 2,
+//     tags: [ 'Turkey', 'mayonaise', 'mustard' ]
+//   }
+// ]
 
 
 //////////////////PROBLEM 5////////////////////
@@ -149,7 +223,22 @@
 */
 
 //CODE HERE
+// proerty(price) number(check against this number) type(above number>property or below number<property)
 
+const filterByProperty = (property, number, type) => {
+    const checkProperty = (food) =>{
+        if(type === 'above'){
+            return food[property] > number
+        }
+        if(type === 'below'){
+            return food[property] < number
+        }
+    }     
+
+    let filteredArr = []
+    filteredArr = foodArr.filter(food => checkProperty(food))    //pass each food into check property
+    return filteredArr
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +248,6 @@
 */
 
 //CODE HERE
+// console.log(filterByProperty('price', 7, 'above') )
+// console.log(filterByProperty('price', 7, 'below') )
+console.log(filterByProperty('popularity', 9, 'above'))

@@ -30,8 +30,29 @@
 */
 
 //CODE HERE
+class Ticket {
+    constructor(items, orderTime, customerID){
+        this.items = items
+        this.orderTime = orderTime
+        this.customerID = customerID
+        this.status = 'queued'
+    }
+updateStatus(newStatus){
+    this.status = newStatus
+    console.log( `The order for ${this.customerID} is now ${this.status}` )
+}
+}
 
+// let pizza = new Ticket('1', '10', 'Jon','queued')
+// pizza.updateStatus('delivered')
+// console.log(pizza)
 
+//logs   
+// The order for Jon is now delivered
+//   items: '1',
+//   orderTime: '10',
+//   customerID: 'Jon',
+//   status: 'delivered'
 
 /*
     Create a new instance of your class.
@@ -45,7 +66,16 @@
 */
 
 //CODE HERE
-
+let firstTicket = new Ticket('pizza, bread, and soda', '7:03 PM', '575')
+// firstTicket.updateStatus('delivered')
+// console.log(firstTicket)
+//logs 
+// Ticket {
+//     items: 'pizza, bread, and soda',
+//     orderTime: '7:03 PM',
+//     customerID: '575',
+//     status: 'queued'
+//   }
 
 /*
     Call the `updateStatus` method on
@@ -54,3 +84,14 @@
 */
 
 //CODE HERE
+
+firstTicket.updateStatus('cooking')
+// console.log(firstTicket)
+// logs 
+// The order for 575 is now cooking
+// Ticket {
+//   items: 'pizza, bread, and soda',
+//   orderTime: '7:03 PM',
+//   customerID: '575',
+//   status: 'cooking'
+// }

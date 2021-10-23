@@ -20,7 +20,15 @@
 */
 
 //CODE HERE
-
+class Employee {
+    constructor(name, shifts){
+        this.name = name
+        this.shift = shifts
+    }
+getSchedule(){
+    console.log(`${this.name} works on ${this.shift}`)
+}
+}
 
 
 /*
@@ -34,6 +42,12 @@
 */
 
 //CODE HERE
+let EmpOne = new Employee( 'Jess', "weekday mornings, weekday afternoons")
+// console.log(EmpOne.name) 
+// console.log(EmpOne.shift)
+//logs
+// Jess
+// weekday mornings, weekday afternoons  
 
 /*
     Call the `getSchedule` method on the
@@ -41,7 +55,9 @@
 */
 
 //CODE HERE
-
+EmpOne.getSchedule()
+//logs 
+//Jess works on weekday mornings, weekday afternoons
 
 /*
     Make a copy of the empOne object
@@ -56,7 +72,11 @@
 */
 
 //CODE HERE
-
+let empTwo = {...EmpOne}
+empTwo.name = 'Nick'
+// console.log(empTwo)
+//logs
+// { name: 'Nick', shift: 'weekday mornings, weekday afternoons' }
 
 
 //////////////////PROBLEM 2////////////////////
@@ -83,8 +103,19 @@
 */
 
 //CODE HERE
-
-
+class Manager extends Employee {
+    constructor(name, shifts, employees = []){
+        super(name, shifts)
+        this.employees = employees
+    }
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+    addEmployee(emp){
+        this.employees.push(emp)  
+    }
+}
+  
 
 /*
     Create a new instance of your class.
@@ -98,7 +129,7 @@
 */
 
 //CODE HERE
-
+let manager = new Manager( 'Winston', "weekday mornings, weekday afternoons", ["Cece", "Schmidt"])
 
 /*
     Call the `getEmployees` method on the
@@ -106,7 +137,8 @@
 */
 
 //CODE HERE
-
+manager.getEmployees()
+//logs Winston manages Cece, Schmidt
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -114,7 +146,7 @@
 */
 
 //CODE HERE 
-
+manager.addEmployee('Coach')
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -122,3 +154,6 @@
 */
 
 //CODE HERE
+manager.getEmployees()
+//logs
+// Winston manages Cece,Schmidt,Coach

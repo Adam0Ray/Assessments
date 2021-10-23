@@ -36,6 +36,10 @@ const cart = [
 //CODE HERE
 
 // const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((accumulator,element) => accumulator + element.price, 0)
+// console.log (summedPrice)
+//logs 26.97
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -54,7 +58,15 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    cartTotal = cartTotal + (cartTotal * tax);
+    cartTotal -= couponValue
+    return cartTotal
+    
+}
 
+// console.log(calcFinalPrice(26.96, 10, .06))
+//logs 18.5776
 
 
 //////////////////PROBLEM 3////////////////////
@@ -79,7 +91,12 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+customer
+    name : 'John Doe'  //identify customer
+    zipcode : '70508'  //identify target areas around city that eat at restaurant
+    drink : true       //identify if customer orders a drink with meal to understand inventory management
+    cash : false       //identify if customer pays with cash or card to understand card transaction fees
+    
 */
 
 /*
@@ -88,3 +105,10 @@ const cart = [
 */
 
 //CODE HERE
+
+const customer = {
+    name : 'John Doe',  
+    zipcode : 70508,  
+    drink : true,       
+    cash : false    
+}
