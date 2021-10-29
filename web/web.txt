@@ -1,0 +1,16 @@
+Answer the following questions in at least 2 paragraphs, in your own words, based on what you have learned in this module.
+
+How does the internet work? What happens when you click on a link?
+
+    The internet works by utilizing computers to send requests from the user and returns from the servers which provide data.
+The internet is a massive global network of computers connected to the internet which each have unique addresses. addresses
+on the internet are called Internet Protocol(IP) addresses.  By having unique IP addresses, this allows the comptuers to talk
+to one another. 
+
+    When you click on a link, a request is sent by the user in a browser utilizing a Uniform Resource Locator (URL) which is 
+comprised of a protocol(http://), Hostname(yahoo.com), Resource(/search), and potential query arguments (?input=newsarticle).  
+The request itself is sent with a method, path, protocol version, headers, and blank line.  The server then receives the 
+request and produces HTML in response which is then received by the broswer. The browser will then render the HTML so that 
+the user can view it, including any styling(example:CSS) or interactivity(Javascript).
+
+
