@@ -6,13 +6,15 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="fortuneButton">Get a fortune</button>
-    
+    <button id="fruitButton">Random Fruit</button>
+
     <div className="App">
-      <button id="GET">GET</button> 
+      <button id="GET">GET Goal List</button> 
       <br>
 
       <form id="POST">
       <input placeholder="add a goal" type="text"  id="postInput">
+      <button id ="addBtn">Add</button>
       </form>
 
       <form id="PUT">
@@ -44,6 +46,16 @@
     <script>
       document.getElementById("fortuneButton").onclick = function () {
         axios.get("http://localhost:4000/api/fortune/")
+          .then(function (response) {
+            const data = response.data;
+            alert(data);
+          });
+      };
+    </script>
+
+    <script>
+      document.getElementById("fruitButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fruit/")
           .then(function (response) {
             const data = response.data;
             alert(data);

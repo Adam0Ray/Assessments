@@ -37,10 +37,25 @@ app.get("/api/fortune", (req, res) => {
   res.status(200).send(randomFortune);
   
 });
+
+app.get("/api/fruit", (req, res) => {
+  const fruit = ["apple", 
+  "banana", 
+  "orange"
+  ];
+
+  // choose random fortune
+  let randomIndex = Math.floor(Math.random() * fruit.length);
+  let randomFruit = fruit[randomIndex];
+
+  res.status(200).send(randomFruit);
+  
+});
+
 let goals = ["test", "learn to code", "land a job"]
 
 app.get('/api/getgoals', (req,res) =>{
-  res.json(goals);
+  res.status(200).send(goals);
 });
 app.post('/api/postgoals', (req,res) =>{
   // console.log(req.body)
