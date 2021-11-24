@@ -1,0 +1,25 @@
+Results for the doublerAppend extraLargeArray
+insert 1.0682262 s
+append 3.7424 ms
+
+Results for the doublerAppend largeArray
+insert 8.7351 ms
+append 534.8 μs
+
+Results for the doublerAppend mediumArray
+insert 186.5 μs
+append 145.6 μs
+
+Results for the doublerAppend smallArray
+insert 49.8 μs
+append 100.6 μs
+
+Results for the doublerAppend tinyArray
+insert 42.7 μs
+append 91.5 μs
+
+
+4.  The pattern seen between doublerAppend and doublerInsert is demonstrating optimization of the same few lines of code with one major difference.  The push method is able to run in constant time O(1) and is more efficient than the unshift method, scaling better.  The unshift method is running in linear time and is O(n).  You can tell this by the number of operations that need to be performed by the function.  An example is that push is last index +1, while unshift is having to move the positions num[1] to num[1]+1, and so on as it reassigns the indexes for the entire length.
+
+5. Extra Credit-
+The function doublerInsert is slower than doublerAppend as doubleInsert is using unshift which is adding a new element to the beginning of the array and reassigning indexes throughout which needs to reallocate memory, while doubleInsert is using push which appends a new element to the end of the array with all the previous elements keeping the same index which rarley needs to reallocate memory.
